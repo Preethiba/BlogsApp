@@ -25,8 +25,8 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowerRouter>
       <div>
-        <Route path="/hello" component={Hello} />
-        <Route path="/bye" component={Goodbye} />
+        <Route path="/hello" Component={Hello} />
+        <Route path="/bye" Component={Goodbye} />
       </div>
     </BrowerRouter>
   </Provider>,
