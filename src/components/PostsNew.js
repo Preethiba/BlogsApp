@@ -2,8 +2,42 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
+  //field is used to wireup the renderTitleField with the Field component
+  renderFields(field) {
+    return (
+      <div className="form-group">
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          {...field.input} //take input obj from field obj
+        />
+      </div>
+    );
+  }
+
   render() {
-    return <div>New Post</div>;
+    return (
+      <form>
+        <Field
+          name="title"
+          label="Title" //custom properties passed through field prop to renderFields method
+          component={this.renderFields}
+          // Field component will call renderFields at some point
+        />
+        <Field
+          name="tags"
+          label="Tags" //custom properties passed through field prop to renderFields method
+          component={this.renderFields}
+          // Field component will call renderFields at some point
+        />
+        <Field
+          name="content"
+          label="Posts Content" //custom properties passed through field prop to renderFields method
+          component={this.renderFields}
+          // Field component will call renderFields at some point
+        />
+      </form>
+    );
   }
 }
 
