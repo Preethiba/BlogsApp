@@ -17,9 +17,15 @@ class PostsNew extends Component {
     );
   }
 
+  onSubmit(values) {
+    console.log(values);
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           name="title"
           label="Title" //custom properties passed through field prop to renderFields method
@@ -38,6 +44,9 @@ class PostsNew extends Component {
           component={this.renderFields}
           // Field component will call renderFields at some point
         />
+        <button type="submit" className="btn btn-primary">
+          Save
+        </button>
       </form>
     );
   }
