@@ -4,15 +4,20 @@ import { Field, reduxForm } from 'redux-form';
 class PostsNew extends Component {
   //field is used to wireup the renderTitleField with the Field component
   renderFields(field) {
+    const className = `form-group ${
+      field.meta.touched && field.meta.error ? 'has-danger' : ''
+    }`;
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input
           className="form-control"
           {...field.input} //take input obj from field obj
         />
         {/* to show error to the user */}
-        {field.meta.error}
+        <div style={{ color: 'red' }}>
+          {field.meta.touched ? field.meta.error : ''}
+        </div>
       </div>
     );
   }
