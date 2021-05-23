@@ -25,8 +25,8 @@ class PostsNew extends Component {
           // Field component will call renderFields at some point
         />
         <Field
-          name="tags"
-          label="Tags" //custom properties passed through field prop to renderFields method
+          name="categories"
+          label="Categories" //custom properties passed through field prop to renderFields method
           component={this.renderFields}
           // Field component will call renderFields at some point
         />
@@ -41,6 +41,25 @@ class PostsNew extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+  //Validate the input values
+  if (!values.title) {
+    errors.title = 'Please enter a title';
+  }
+  if (!values.categories) {
+    errors.categories = 'Please enter the categories';
+  }
+  if (!values.content) {
+    errors.content = 'Please enter some content';
+  }
+  //return the error object
+  //if error object is empty, then the form is fine to submit
+  //if error object has any properties, then redux form assumes that the form is invalid
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'PostsNewForm'
 })(PostsNew);
