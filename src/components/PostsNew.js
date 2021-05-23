@@ -11,6 +11,8 @@ class PostsNew extends Component {
           className="form-control"
           {...field.input} //take input obj from field obj
         />
+        {/* to show error to the user */}
+        {field.meta.error}
       </div>
     );
   }
