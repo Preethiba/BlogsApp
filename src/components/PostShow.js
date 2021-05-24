@@ -7,10 +7,12 @@ class PostShow extends React.Component {
     this.props.fetchPost(this.props.match.params.id);
   }
   render() {
-    if (!this.props.post) {
+    const { post } = this.props;
+
+    if (!post) {
       return <div>Loading...</div>;
     }
-    const { post } = this.props;
+
     return (
       <div>
         <h3>{post.title}</h3>
