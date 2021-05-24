@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
+export const FETCH_POST = 'FETCH_POST';
 
 const rootURL = 'https://reduxblog.herokuapp.com/api/';
 const API_KEY = '?key=PREETHU1999';
@@ -22,6 +23,15 @@ export function createPost(values, callback) {
 
   return {
     type: CREATE_POST,
+    payload: response
+  };
+}
+
+export function fetchPost(id) {
+  const response = axios.get(`${rootURL}posts/${id}${SPI_KEY}`);
+
+  return {
+    type: FETCH_POST,
     payload: response
   };
 }
