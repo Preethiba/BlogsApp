@@ -28,7 +28,7 @@ export function createPost(values, callback) {
 }
 
 export function fetchPost(id) {
-  const response = axios.get(`${rootURL}posts/${id}${SPI_KEY}`);
+  const response = axios.get(`${rootURL}posts/${id}${API_KEY}`);
 
   return {
     type: FETCH_POST,
